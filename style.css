@@ -1,0 +1,91 @@
+.banner-principal {
+    background-color: #303030;
+    height: 45rem;
+    background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos_1_-min.jpg?v=1701904998');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+    margin: 0;
+}
+
+.container-banner {
+    display: flex;
+    flex-direction: row;
+}
+
+.banner-section {
+    flex: 1;
+    text-align: center;
+    justify-content: end;
+    cursor: pointer;
+    height: 45rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+}
+
+
+#section1 {
+    border-right: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+#section2 {
+    border-right: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.banner-section:hover {
+    background-color: transparent;
+}
+
+.pagination-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot:hover {
+    background-color: #717171;
+}
+
+#paginationContainer {
+    display: none;
+}
+
+.banner-section.hovered {
+    background-color: transparent;
+}
+
+@media (max-width: 768px) {
+#paginationContainer {
+    display: block;
+}
+
+.container-banner {
+    flex-direction: column; 
+}
+
+.banner-section {
+    border-right: none;
+}
+
+.banner-section:not(.active) h1,
+.banner-section:not(.active) p {
+    display: none; 
+}
+
+.banner-section.active h1,
+.banner-section.active p {
+    display: block;
+}
+}
