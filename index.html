@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <section class="banner-principal">
         <div class="container-banner">
@@ -28,7 +30,7 @@
                 <p class="texto-3">Sección 3</p>
             </div>
         </div>
-    
+
         <div id="paginationContainer" class="pagination-dots">
             <span class="dot" onclick="changeSection(1)"></span>
             <span class="dot" onclick="changeSection(2)"></span>
@@ -38,16 +40,16 @@
 
     <script>
         let currentSection = 1;
-    
-        function changeContent(section) {
-    document.querySelector('.banner-principal').classList.remove('hovered');
-    document.getElementById(`section${section}`).classList.add('hovered');
-}
 
-function updateBanner() {
-    document.querySelector('.banner-principal').classList.remove('hovered');
-    document.getElementById(`section${currentSection}`).classList.add('hovered');
-}
+        function changeContent(section) {
+            document.querySelector('.banner-principal').classList.remove('hovered');
+            document.getElementById(`section${section}`).classList.add('hovered');
+        }
+
+        /* function updateBanner() {
+             document.querySelector('.banner-principal').classList.remove('hovered');
+             document.getElementById(`section${currentSection}`).classList.add('hovered');
+         }*/
 
 
         function changeContent(title, text, imageUrl) {
@@ -55,9 +57,9 @@ function updateBanner() {
             document.querySelector('.banner-principal p').innerText = text;
             document.querySelector('.banner-principal').style.backgroundImage = `url('${imageUrl}')`;
         }
-    
+
         function redirectTo(link) {
-            window.location.href = link;
+            window.location.replace(link);
         }
 
         function changeSection(section) {
@@ -69,12 +71,12 @@ function updateBanner() {
             const title = document.getElementById(`section${currentSection}`).querySelector('h1').innerText;
             const text = document.getElementById(`section${currentSection}`).querySelector('p').innerText;
             const imageUrl = document.getElementById(`section${currentSection}`).style.backgroundImage;
-            
+
             document.querySelector('.banner-principal h1').innerText = title;
             document.querySelector('.banner-principal p').innerText = text;
             document.querySelector('.banner-principal').style.backgroundImage = imageUrl;
         }
-    
+
         document.querySelectorAll('.dot').forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 changeSection(index + 1);
@@ -82,9 +84,9 @@ function updateBanner() {
                 document.getElementById(`section${index + 1}`).dispatchEvent(new Event('mouseover'));
             });
         });
-    
-         // Función para mostrar la paginación en dispositivos móviles
-         function showPagination() {
+
+        // Función para mostrar la paginación en dispositivos móviles
+        function showPagination() {
             const paginationContainer = document.querySelector('#paginationContainer');
             if (window.innerWidth < 768) {
                 paginationContainer.style.opacity = 1;
@@ -95,11 +97,12 @@ function updateBanner() {
                 document.querySelector('.container-banner').style.flexDirection = 'row';
             }
         }
-    
+
         // Usar el evento "resize" en lugar de "resize" para corregir la escucha de eventos
         window.addEventListener('resize', showPagination);
         // Llamar a la función al cargar la página
         showPagination();
     </script>
 </body>
+
 </html>
