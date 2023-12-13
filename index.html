@@ -11,26 +11,26 @@
 <body>
     <section class="banner-principal">
         <div class="container-banner">
-            <div class="banner-section active" id="section1"
-                onmouseover="changeContent('Titulo 1', 'Sección 1', 'https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
+            <div class="banner-section" id="section1"
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
                 onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
                 <h1>Titulo 1</h1>
                 <p class="texto-1">Sección 1</p>
             </div>
             <div class="banner-section" id="section2"
-                onmouseover="changeContent('Titulo 2', 'Sección 2', 'https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
                 onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
                 <h1>Titulo 2</h1>
                 <p class="texto-2">Sección 2</p>
             </div>
             <div class="banner-section" id="section3"
-                onmouseover="changeContent('Titulo 3', 'Sección 3', 'https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
                 onclick="redirectTo('https://www.novaride.store/collections/all')">
                 <h1>Titulo 3</h1>
                 <p class="texto-3">Sección 3</p>
             </div>
         </div>
-
+    
         <div id="paginationContainer" class="pagination-dots">
             <span class="dot" onclick="changeSection(1)"></span>
             <span class="dot" onclick="changeSection(2)"></span>
@@ -40,43 +40,28 @@
 
     <script>
         let currentSection = 1;
-
-        function changeContent(section) {
-            document.querySelector('.banner-principal').classList.remove('hovered');
-            document.getElementById(`section${section}`).classList.add('hovered');
-        }
-
-        /* function updateBanner() {
-             document.querySelector('.banner-principal').classList.remove('hovered');
-             document.getElementById(`section${currentSection}`).classList.add('hovered');
-         }*/
-
-
-        function changeContent(title, text, imageUrl) {
-            document.querySelector('.banner-principal h1').innerText = title;
-            document.querySelector('.banner-principal p').innerText = text;
+    
+        function changeBackground(imageUrl) {
             document.querySelector('.banner-principal').style.backgroundImage = `url('${imageUrl}')`;
         }
-
+    
         function redirectTo(link) {
-            window.location.replace(link);
+            window.location.href = link;
         }
-
+    
+        // Agregado: Cambiar de sección en la paginación
         function changeSection(section) {
             currentSection = section;
             updateBanner();
         }
-
+    
+        // Agregado: Actualizar el banner según la sección actual
         function updateBanner() {
-            const title = document.getElementById(`section${currentSection}`).querySelector('h1').innerText;
-            const text = document.getElementById(`section${currentSection}`).querySelector('p').innerText;
             const imageUrl = document.getElementById(`section${currentSection}`).style.backgroundImage;
-
-            document.querySelector('.banner-principal h1').innerText = title;
-            document.querySelector('.banner-principal p').innerText = text;
             document.querySelector('.banner-principal').style.backgroundImage = imageUrl;
         }
-
+    
+        // Agregado: Simular hover al hacer clic en un dot
         document.querySelectorAll('.dot').forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 changeSection(index + 1);
@@ -84,24 +69,17 @@
                 document.getElementById(`section${index + 1}`).dispatchEvent(new Event('mouseover'));
             });
         });
-
+    
         // Función para mostrar la paginación en dispositivos móviles
         function showPagination() {
-            const paginationContainer = document.querySelector('#paginationContainer');
-            if (window.innerWidth < 768) {
-                paginationContainer.style.opacity = 1;
-                document.querySelector('.container-banner').style.flexDirection = 'column';
-                document.querySelector('.banner-section.active').dispatchEvent(new Event('mouseover'));
-            } else {
-                paginationContainer.style.opacity = 0; // Ocultar la paginación en otros casos
-                document.querySelector('.container-banner').style.flexDirection = 'row';
-            }
-        }
-
-        // Usar el evento "resize" en lugar de "resize" para corregir la escucha de eventos
-        window.addEventListener('resize', showPagination);
-        // Llamar a la función al cargar la página
-        showPagination();
+            console.log("mostrar puntitos")
+      const paginationContainer = document.querySelector('#paginationContainer');
+      if (window.innerWidth < 768) {
+        paginationContainer.style.opacity = 1;
+      }
+    }
+    
+    document.addEventListener('resize', showPagination);
     </script>
 </body>
 

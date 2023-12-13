@@ -23,9 +23,7 @@
     flex-direction: column;
     align-items: center;
     color: #fff;
-    width: 100%;
 }
-
 
 #section1 {
     border-right: 0.5px solid rgba(255, 255, 255, 0.3);
@@ -62,30 +60,8 @@
     display: none;
 }
 
-.banner-section.hovered {
-    background-color: transparent;
-}
-
 @media (max-width: 768px) {
 #paginationContainer {
-    display: block;
-}
-
-.container-banner {
-    flex-direction: column; 
-}
-
-.banner-section {
-    border-right: none;
-}
-
-.banner-section:not(.active) h1,
-.banner-section:not(.active) p {
-    display: none; 
-}
-
-.banner-section.active h1,
-.banner-section.active p {
-    display: block;
+    display: block ;
 }
 }
