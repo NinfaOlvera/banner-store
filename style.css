@@ -1,6 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: scroll;
+}
+
 .banner-principal {
-    background-color: #303030;
-    height: 45rem;
+    height: 42rem;
     background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos_1_-min.jpg?v=1701904998');
     background-size: cover;
     background-position: center;
@@ -18,11 +23,12 @@
     text-align: center;
     justify-content: end;
     cursor: pointer;
-    height: 45rem;
+    height: 42rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #fff;
+    box-sizing: border-box;
 }
 
 #section1 {
@@ -60,8 +66,56 @@
     display: none;
 }
 
-@media (max-width: 768px) {
-#paginationContainer {
-    display: block ;
+.mobile-slider {
+    display: none;
 }
+
+@media (max-width: 768px) {
+    .banner-principal {
+        display: none;
+    }
+
+    .mobile-slider {
+        display: block;
+        height: 12rem;
+        white-space: normal;
+        white-space: nowrap;
+        overflow-x: auto;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.3s ease;
+    }
+
+    .slider-container {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; /* Propiedad para mejorar la suavidad del scroll en iOS */
+    }
+
+    .banner-section {
+        flex: 0 0 100%;
+        height: 12rem;
+        min-width: 100%;
+        scroll-snap-align: start;
+    }
+
+    .pagination-dots {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dot:hover {
+        background-color: #717171;
+    }
 }
