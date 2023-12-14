@@ -9,108 +9,133 @@
 </head>
 
 <body>
-<section class="banner-principal">
-    <div class="container-banner">
-        <div class="banner-section" id="section1"
-            onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
-            onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
-            <h1>Titulo 1</h1>
-            <p class="texto-1">Sección 1</p>
+    <section class="banner-principal">
+        <div class="container-banner">
+            <div class="banner-section" id="desktopSection1"
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
+                onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
+                <h1>Titulo 1</h1>
+                <p class="texto-1">Sección 1</p>
+            </div>
+            <div class="banner-section" id="desktopSection2"
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
+                onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
+                <h1>Titulo 2</h1>
+                <p class="texto-2">Sección 2</p>
+            </div>
+            <div class="banner-section" id="desktopSection3"
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
+                onclick="redirectTo('https://www.novaride.store/collections/all')">
+                <h1>Titulo 3</h1>
+                <p class="texto-3">Sección 3</p>
+            </div>
         </div>
-        <div class="banner-section" id="section2"
-            onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
-            onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
-            <h1>Titulo 2</h1>
-            <p class="texto-2">Sección 2</p>
+
+    </section>
+
+    <div class="mobile-slider">
+        <div class="slider-container">
+            <div class="banner-section" id="mobileSection1" data-index="1"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
+                onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
+                <h1>Titulo 1</h1>
+                <p class="texto-1">Sección 1</p>
+            </div>
+            <div class="banner-section" id="mobileSection2" data-index="2"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
+                onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
+                <h1>Titulo 2</h1>
+                <p class="texto-2">Sección 2</p>
+            </div>
+            <div class="banner-section" id="mobileSection3" data-index="3"
+                style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
+                onclick="redirectTo('https://www.novaride.store/collections/all')">
+                <h1>Titulo 3</h1>
+                <p class="texto-3">Sección 3</p>
+            </div>
         </div>
-        <div class="banner-section" id="section3"
-            onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
-            onclick="redirectTo('https://www.novaride.store/collections/all')">
-            <h1>Titulo 3</h1>
-            <p class="texto-3">Sección 3</p>
+        <div class="pagination-dots">
+            <span class="dot" onclick="changeSection(1)"></span>
+            <span class="dot" onclick="changeSection(2)"></span>
+            <span class="dot" onclick="changeSection(3)"></span>
         </div>
     </div>
 
-    <div id="paginationContainer" class="pagination-dots">
-        <span class="dot" onclick="changeSection(1)"></span>
-        <span class="dot" onclick="changeSection(2)"></span>
-        <span class="dot" onclick="changeSection(3)"></span>
-    </div>
-</section>
+    <script>
+        let currentSection = 1;
+        let slideTimer;
 
-<div class="mobile-slider">
-    <div class="slider-container">
-        <div class="banner-section" id="section1" data-index="1"
-            style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
-            onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
-            <h1>Titulo 1</h1>
-            <p class="texto-1">Sección 1</p>
-        </div>
-        <div class="banner-section" id="section2" data-index="2"
-            style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
-            onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
-            <h1>Titulo 2</h1>
-            <p class="texto-2">Sección 2</p>
-        </div>
-        <div class="banner-section" id="section3" data-index="3"
-            style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
-            onclick="redirectTo('https://www.novaride.store/collections/all')">
-            <h1>Titulo 3</h1>
-            <p class="texto-3">Sección 3</p>
-        </div>
-    </div>
-    <div class="pagination-dots">
-        <span class="dot" onclick="changeSection(1)"></span>
-        <span class="dot" onclick="changeSection(2)"></span>
-        <span class="dot" onclick="changeSection(3)"></span>
-    </div>
-</div>
+        function changeBackground(imageUrl) {
+            document.querySelector('.banner-principal').style.backgroundImage = `url('${imageUrl}')`;
+        }
 
-<script>
-    let currentSection = 1;
+        function redirectTo(link) {
+            window.location.href = link;
+        }
 
-    function changeBackground(imageUrl) {
-        document.querySelector('.banner-principal').style.backgroundImage = `url('${imageUrl}')`;
-    }
+        function changeSection(section) {
+            currentSection = section;
+            updateBanner();
+            updateMobileBanner();
+        }
 
-    function redirectTo(link) {
-        window.location.href = link;
-    }
+        function updateBanner() {
+            const imageUrl = document.getElementById(`desktopSection${currentSection}`).style.backgroundImage;
+            document.querySelector('.banner-principal').style.backgroundImage = imageUrl;
+        }
 
-    // Agregado: Cambiar de sección en la paginación
-    function changeSection(section) {
-        currentSection = section;
-        updateBanner();
-        updateMobileBanner();
-    }
-
-    // Agregado: Actualizar el banner según la sección actual
-    function updateBanner() {
-        const imageUrl = document.getElementById(`section${currentSection}`).style.backgroundImage;
-        document.querySelector('.banner-principal').style.backgroundImage = imageUrl;
-    }
-
-    // Agregado: Simular hover al hacer clic en un dot
-    document.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            changeSection(index + 1);
-            // Simular hover al cambiar de sección
-            document.getElementById(`section${index + 1}`).dispatchEvent(new Event('mouseover'));
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                changeSection(index + 1);
+                document.getElementById(`desktopSection${index + 1}`).dispatchEvent(new Event('mouseover'));
+            });
         });
-    });
 
-    // Modificado: Actualizar el banner según la sección actual en dispositivos móviles
-    function updateMobileBanner() {
-        const index = currentSection - 1;
-        const imageUrl = document.querySelector(`.banner-section[data-index="${currentSection}"]`).style.backgroundImage;
-        document.querySelector('.mobile-slider').style.backgroundImage = imageUrl;
+        function updateMobileBanner() {
+            const index = currentSection - 1;
+            const imageUrl = document.querySelector(`#mobileSection${currentSection}`).style.backgroundImage;
+            document.querySelector('.mobile-slider').style.backgroundImage = imageUrl;
 
-        // Actualizar la paginación activa
-        document.querySelectorAll('.dot').forEach((dot, dotIndex) => {
-            dot.classList.toggle('active', dotIndex === index);
+            document.querySelectorAll('.dot').forEach((dot, dotIndex) => {
+                dot.classList.toggle('active', dotIndex === index);
+            });
+        }
+
+        function autoChangeSlide() {
+            slideTimer = setInterval(() => {
+                currentSection = (currentSection % 3) + 1; // Ciclo entre las secciones 1, 2, 3
+                updateBanner();
+                updateMobileBanner();
+            }, 3000);
+        }
+
+        autoChangeSlide(); // Iniciar el temporizador automático de cambio de slides
+
+        // Añadir eventos de toque para el slider móvil
+        let touchStartX;
+
+        document.querySelector('.mobile-slider').addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            clearInterval(slideTimer); // Detener el temporizador automático en touchstart
         });
-    }
-</script>
+
+        document.querySelector('.mobile-slider').addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const deltaX = touchEndX - touchStartX;
+
+            if (deltaX > 50) {
+                // Deslizar hacia la derecha
+                currentSection = (currentSection - 2 + 3) % 3 + 1;
+            } else if (deltaX < -50) {
+                // Deslizar hacia la izquierda
+                currentSection = (currentSection % 3) + 1;
+            }
+
+            updateBanner();
+            updateMobileBanner();
+            autoChangeSlide(); // Reiniciar el temporizador automático después de touchend
+        });
+    </script>
 </body>
 
 </html>
