@@ -12,129 +12,132 @@
     <section class="banner-principal">
         <div class="container-banner">
             <div class="banner-section" id="desktopSection1"
-                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Mirell_Banners.jpg?v=1703012693')"
                 onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
                 <h1>Titulo 1</h1>
                 <p class="texto-1">Sección 1</p>
             </div>
             <div class="banner-section" id="desktopSection2"
-                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
-                onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Novaride_Bannes_Store.jpg?v=1703012693')"
+                onclick="redirectTo('https://www.novaride.store/collections/all')">
                 <h1>Titulo 2</h1>
                 <p class="texto-2">Sección 2</p>
             </div>
             <div class="banner-section" id="desktopSection3"
-                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
-                onclick="redirectTo('https://www.novaride.store/collections/all')">
+                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Rollway_Banner.jpg?v=1703012693')"
+                onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
                 <h1>Titulo 3</h1>
                 <p class="texto-3">Sección 3</p>
             </div>
         </div>
-
     </section>
 
-    <div class="mobile-slider">
-        <div class="slider-container">
-            <div class="banner-section" id="mobileSection1" data-index="1"
-                style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos-min.png?v=1701904888')"
-                onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
-                <h1>Titulo 1</h1>
-                <p class="texto-1">Sección 1</p>
-            </div>
-            <div class="banner-section" id="mobileSection2" data-index="2"
-                style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Novaride_1920x900_2_39ed498d-59e2-464a-a180-caab667d164d.jpg?v=1701904718')"
-                onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
-                <h1>Titulo 2</h1>
-                <p class="texto-2">Sección 2</p>
-            </div>
-            <div class="banner-section" id="mobileSection3" data-index="3"
-                style="background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Frame_29.png?v=1701453459')"
-                onclick="redirectTo('https://www.novaride.store/collections/all')">
-                <h1>Titulo 3</h1>
-                <p class="texto-3">Sección 3</p>
-            </div>
-        </div>
-        <div class="pagination-dots">
-            <span class="dot" onclick="changeSection(1)"></span>
-            <span class="dot" onclick="changeSection(2)"></span>
-            <span class="dot" onclick="changeSection(3)"></span>
-        </div>
-    </div>
+    <section class="slider-wrapper">
+        <button class="slide-arrow" id="slide-arrow-prev">
+          &#8249;
+        </button>
+        <button class="slide-arrow" id="slide-arrow-next">
+          &#8250;
+        </button>
+        <ul class="slides-container" id="slides-container">
+      
+          <li class="slide">
+        <a href="https://mirel.store/collections/todos-los-productos?page=2">
+             <h1>Slide 1</h1>
+             <p>texto1</p>
+        </a>
+          </li>
+          
+          <li class="slide">
+          <a href="https://www.novaride.store/collections/all">
+             <h1>Slide 2</h1>
+             <p>texto2</p>
+        </a>
+          </li>
+         
+          <li class="slide">
+          <a href="https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04">
+             <h1>Slide 3</h1>
+             <p>texto3</p>
+        </a>
+          </li>
+        </ul>
+      </section>
 
     <script>
         let currentSection = 1;
-        let slideTimer;
 
         function changeBackground(imageUrl) {
             document.querySelector('.banner-principal').style.backgroundImage = `url('${imageUrl}')`;
+            document.querySelector(`#mobileSection${currentSection}`).style.backgroundImage = `url('${imageUrl}')`; // Actualización específica del slide
         }
 
         function redirectTo(link) {
             window.location.href = link;
         }
 
-        function changeSection(section) {
-            currentSection = section;
-            updateBanner();
-            updateMobileBanner();
-        }
-
         function updateBanner() {
             const imageUrl = document.getElementById(`desktopSection${currentSection}`).style.backgroundImage;
             document.querySelector('.banner-principal').style.backgroundImage = imageUrl;
+            document.querySelector(`#mobileSection${currentSection}`).style.backgroundImage = imageUrl; // Actualización específica del slide
         }
-
-        document.querySelectorAll('.dot').forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                changeSection(index + 1);
-                document.getElementById(`desktopSection${index + 1}`).dispatchEvent(new Event('mouseover'));
-            });
-        });
 
         function updateMobileBanner() {
             const index = currentSection - 1;
             const imageUrl = document.querySelector(`#mobileSection${currentSection}`).style.backgroundImage;
-            document.querySelector('.mobile-slider').style.backgroundImage = imageUrl;
-
-            document.querySelectorAll('.dot').forEach((dot, dotIndex) => {
-                dot.classList.toggle('active', dotIndex === index);
-            });
+            document.querySelector('.slider-container').style.backgroundImage = imageUrl;
         }
 
-        function autoChangeSlide() {
-            slideTimer = setInterval(() => {
-                currentSection = (currentSection % 3) + 1; // Ciclo entre las secciones 1, 2, 3
-                updateBanner();
-                updateMobileBanner();
-            }, 3000);
-        }
+        function changeSlide(direction) {
+            currentSection += direction;
 
-        autoChangeSlide(); // Iniciar el temporizador automático de cambio de slides
-
-        // Añadir eventos de toque para el slider móvil
-        let touchStartX;
-
-        document.querySelector('.mobile-slider').addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            clearInterval(slideTimer); // Detener el temporizador automático en touchstart
-        });
-
-        document.querySelector('.mobile-slider').addEventListener('touchend', (e) => {
-            const touchEndX = e.changedTouches[0].clientX;
-            const deltaX = touchEndX - touchStartX;
-
-            if (deltaX > 50) {
-                // Deslizar hacia la derecha
-                currentSection = (currentSection - 2 + 3) % 3 + 1;
-            } else if (deltaX < -50) {
-                // Deslizar hacia la izquierda
-                currentSection = (currentSection % 3) + 1;
+            // Verificar límites de los slides
+            if (currentSection < 1) {
+                currentSection = 3; // Si estás en el primer slide y haces clic a la izquierda, ir al último slide
+            } else if (currentSection > 3) {
+                currentSection = 1; // Si estás en el último slide y haces clic a la derecha, ir al primer slide
             }
 
-            updateBanner();
             updateMobileBanner();
-            autoChangeSlide(); // Reiniciar el temporizador automático después de touchend
-        });
+        }
+
+        // Agrega este código al final para actualizar el banner móvil al cargar la página
+        window.onload = function () {
+            updateMobileBanner();
+        };
+
+const slidesContainer = document.getElementById("slides-container");
+const slide = document.querySelector(".slide");
+const prevButton = document.getElementById("slide-arrow-prev");
+const nextButton = document.getElementById("slide-arrow-next");
+let currentIndex = 0;
+let startX;
+
+nextButton.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slidesContainer.children.length;
+    scrollToCurrentIndex();
+  });
+
+  prevButton.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slidesContainer.children.length) % slidesContainer.children.length;
+    scrollToCurrentIndex();
+  });
+
+  slidesContainer.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slidesContainer.addEventListener("touchmove", (e) => {
+    const diffX = e.touches[0].clientX - startX;
+    const slideWidth = slide.clientWidth;
+    slidesContainer.scrollLeft -= diffX;
+    startX = e.touches[0].clientX;
+  });
+
+  function scrollToCurrentIndex() {
+    const slideWidth = slide.clientWidth;
+    slidesContainer.scrollLeft = currentIndex * slideWidth;
+  }
     </script>
 </body>
 

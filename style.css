@@ -4,9 +4,13 @@ body {
     overflow-x: scroll;
 }
 
+html {
+    font-size: 10px;
+}
+
 .banner-principal {
-    height: 42rem;
-    background-image: url('https://cdn.shopify.com/s/files/1/0623/8054/0096/files/Banner_productos_1_-min.jpg?v=1701904998');
+    height: 45rem;
+    background-image: url('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Mirell_Banners.jpg?v=1703012693');
     background-size: cover;
     background-position: center;
     transition: background-image 0.3s ease;
@@ -31,11 +35,11 @@ body {
     box-sizing: border-box;
 }
 
-#section1 {
+#desktopSection1 {
     border-right: 0.5px solid rgba(255, 255, 255, 0.3);
 }
 
-#section2 {
+#desktopSection2 {
     border-right: 0.5px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -43,30 +47,11 @@ body {
     background-color: transparent;
 }
 
-.pagination-dots {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.dot:hover {
-    background-color: #717171;
-}
-
 #paginationContainer {
     display: none;
 }
 
-.mobile-slider {
+.slider-wrapper {
     display: none;
 }
 
@@ -74,66 +59,94 @@ body {
     .banner-principal {
         display: none;
     }
-
-    .mobile-slider {
+    .slider-wrapper {
+        margin: 1rem;
+        height: 55rem;
+        position: relative;
+        overflow: hidden;
+        touch-action: pan-y;
         display: block;
+      }
+      
+      .slides-container {
+        height: calc(100vh - 2rem);
         width: 100%;
-        height: 12rem;
-        white-space: normal;
-        white-space: nowrap;
-        overflow-x: auto;
-        background-size: cover;
-        background-position: center;
-        transition: background-image 0.3s ease;
-    }
-
-    .slider-container {
         display: flex;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .banner-section {
-        flex: 0 0 100%;
-        height: 12rem;
-        min-width: 100%;
-        scroll-snap-align: start;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .slider-container {
-        top: 3rem;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .slide-arrow {
+        position: absolute;
         display: flex;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch; /* Propiedad para mejorar la suavidad del scroll en iOS */
-    }
-
-    .banner-section {
-        flex: 0 0 100%;
-        height: 12rem;
-        min-width: 100%;
-        scroll-snap-align: start;
-    }
-
-    .pagination-dots {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .dot {
-        height: 15px;
-        width: 15px;
-        margin: 0 5px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 4rem;
+        background-color: white;
+        border: none;
+        width: 2rem;
+        font-size: 3rem;
+        padding: 0;
         cursor: pointer;
-    }
-
-    .dot:hover {
-        background-color: #d4d4d4;
-    }
+        opacity: 0.5;
+        transition: opacity 100ms;
+      }
+      
+      .slide-arrow:hover,
+      .slide-arrow:focus {
+        opacity: 1;
+      }
+      
+      #slide-arrow-prev {
+        left: 0;
+        padding-left: 0.25rem;
+        border-radius: 0 2rem 2rem 0;
+      }
+      
+      #slide-arrow-next {
+        right: 0;
+        padding-left: 0.75rem;
+        border-radius: 2rem 0 0 2rem;
+      }
+      
+      .slide {
+        width: 100%;
+        height: 100%;
+        flex: 1 0 100%;
+        text-align: center;
+      }
+      
+        .slide a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-decoration: none; 
+          color: white;
+        }
+      
+      .slide:nth-child(1) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Mirell_Banners_50321314-9397-4ef3-9a1e-4214cab319e6.jpg?v=1703013919');
+        background-size: contain;
+        background-position: start;
+      }
+      
+      .slide:nth-child(2) {
+          background-image: url('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Novaride_Bannes_Store_f88279bf-6a2f-4440-8851-239212110541.jpg?v=1703013919');
+        background-size: contain;
+        background-position: start;
+      }
+      
+      .slide:nth-child(3) {
+        background-image: url('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Rollway_Banner_03772f16-dd7b-4f96-9c2c-12db4ec9b5fd.jpg?v=1703013919');
+        background-size: contain;
+        background-position: start;
+      }
+      
+      .slide:nth-child(4) {
+        background-color: #da6f2b;
+      }
 }
