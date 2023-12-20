@@ -12,22 +12,25 @@
     <section class="banner-principal">
         <div class="container-banner">
             <div class="banner-section" id="desktopSection1"
-                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Mirell_Banners.jpg?v=1703012693')"
-                onclick="redirectTo('https://mirel.store/collections/todos-los-productos?page=2')">
-                <h1>Titulo 1</h1>
-                <p class="texto-1">Sección 1</p>
+            onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Novaride_Bannes_Store.jpg?v=1703012693')"
+            onclick="redirectTo('https://gaonstore.com.mx/collections/novaride')">
+                <h1 class="coleccion-banner">Novaride</h1>
+                <p class="texto-1">Muevete sin límites</p>
+                <button class="btn-coleccion">DESCUBRE LA COLECCION</button>
             </div>
             <div class="banner-section" id="desktopSection2"
-                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Novaride_Bannes_Store.jpg?v=1703012693')"
-                onclick="redirectTo('https://www.novaride.store/collections/all')">
-                <h1>Titulo 2</h1>
-                <p class="texto-2">Sección 2</p>
+            onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Rollway_Banner.jpg?v=1703012693')"
+            onclick="redirectTo('https://gaonstore.com.mx/collections/rollway')">
+                <h1 class="coleccion-banner">Rollway</h1>
+                <p class="texto-2">Viaja con estilo</p>
+                <button class="btn-coleccion">DESCUBRE LA COLECCION</button>
             </div>
             <div class="banner-section" id="desktopSection3"
-                onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Rollway_Banner.jpg?v=1703012693')"
-                onclick="redirectTo('https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04')">
-                <h1>Titulo 3</h1>
-                <p class="texto-3">Sección 3</p>
+            onmouseover="changeBackground('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Mirell_Banners.jpg?v=1703012693')"
+            onclick="redirectTo('https://gaonstore.com.mx/collections/mirel')">
+                <h1 class="coleccion-banner">Mirel</h1>
+                <p class="texto-3">Muebles de diseño a tu medida</p>
+                <button class="btn-coleccion">DESCUBRE LA COLECCION</button>
             </div>
         </div>
     </section>
@@ -42,21 +45,21 @@
         <ul class="slides-container" id="slides-container">
       
           <li class="slide">
-        <a href="https://mirel.store/collections/todos-los-productos?page=2">
+          <a href="https://www.novaride.store/collections/all">
              <h1>Slide 1</h1>
              <p>texto1</p>
         </a>
           </li>
           
           <li class="slide">
-          <a href="https://www.novaride.store/collections/all">
+          <a href="https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04">
              <h1>Slide 2</h1>
              <p>texto2</p>
         </a>
           </li>
          
           <li class="slide">
-          <a href="https://rollway.store/products/juego-de-maletas-de-viaje-rwlu04">
+        <a href="https://mirel.store/collections/todos-los-productos?page=2">
              <h1>Slide 3</h1>
              <p>texto3</p>
         </a>
@@ -82,29 +85,6 @@
             document.querySelector(`#mobileSection${currentSection}`).style.backgroundImage = imageUrl; // Actualización específica del slide
         }
 
-        function updateMobileBanner() {
-            const index = currentSection - 1;
-            const imageUrl = document.querySelector(`#mobileSection${currentSection}`).style.backgroundImage;
-            document.querySelector('.slider-container').style.backgroundImage = imageUrl;
-        }
-
-        function changeSlide(direction) {
-            currentSection += direction;
-
-            // Verificar límites de los slides
-            if (currentSection < 1) {
-                currentSection = 3; // Si estás en el primer slide y haces clic a la izquierda, ir al último slide
-            } else if (currentSection > 3) {
-                currentSection = 1; // Si estás en el último slide y haces clic a la derecha, ir al primer slide
-            }
-
-            updateMobileBanner();
-        }
-
-        // Agrega este código al final para actualizar el banner móvil al cargar la página
-        window.onload = function () {
-            updateMobileBanner();
-        };
 
 const slidesContainer = document.getElementById("slides-container");
 const slide = document.querySelector(".slide");
