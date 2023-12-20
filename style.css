@@ -156,14 +156,29 @@ html {
         flex: 1 0 100%;
         text-align: center;
     }*/
+    .btn-coleccion-mobile {
+        cursor: pointer;
+        background: #0086B5;
+        border: 0.5px solid #fff;
+        color: #fff;
+        padding: 0.5rem;
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-top: 12
+        0%;
+    }
 
     .slide {
         width: 100%;
         flex: 1 0 100%;
         text-align: center;
-        justify-content: end;
-        background-size: 100% 100%; 
-        background-position: center;
+        background-size: contain; 
+        background-repeat: no-repeat;
+        background-position: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 1rem;
     }
 
     .slide a {
@@ -176,19 +191,19 @@ html {
 
     .slide:nth-child(1) {
         background-image: url('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Novaride_Bannes_Store_f88279bf-6a2f-4440-8851-239212110541.jpg?v=1703013919');
-        background-size: cover;
+        background-size: contain;
         background-position: start;
     }
 
     .slide:nth-child(2) {
         background-image: url('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Rollway_Banner_03772f16-dd7b-4f96-9c2c-12db4ec9b5fd.jpg?v=1703013919');
-        background-size: cover;
+        background-size: contain;
         background-position: start;
     }
 
     .slide:nth-child(3) {
         background-image: url('https://cdn.shopify.com/s/files/1/0673/1019/0840/files/Mirell_Banners_50321314-9397-4ef3-9a1e-4214cab319e6.jpg?v=1703013919');
-        background-size: cover;
+        background-size: contain;
         background-position: start;
     }
 
